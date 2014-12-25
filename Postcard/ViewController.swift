@@ -28,7 +28,7 @@ class ViewController: UIViewController {
     @IBAction func sendMailMessageButton(sender: UIButton) {
         // Show message label
         messageLabel.hidden = false
-        
+        // Adding a comment to test commits
         
         // Show message text on screen when is submitted
         if enterMessageTextField !== "" {
