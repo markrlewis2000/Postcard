@@ -11,9 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var messageLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+
     @IBOutlet weak var enterNameTextField: UITextField!
     @IBOutlet weak var enterMessageTextField: UITextField!
     @IBOutlet weak var mailButton: UIButton!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,20 +31,31 @@ class ViewController: UIViewController {
     @IBAction func sendMailMessageButton(sender: UIButton) {
         // Show message label
         messageLabel.hidden = false
+        nameLabel.hidden = false
         // Adding a comment to test commits
         
         // Show message text on screen when is submitted
-        if enterMessageTextField !== "" {
+        if enterMessageTextField !== " " {
             messageLabel.text = enterMessageTextField.text
         } else {
             messageLabel.text = "Please enter a message text"
         }
         
+        // Show name on screen if it's entered
+        if enterNameTextField !== " " {
+            nameLabel.text = enterNameTextField.text
+        } else {
+            nameLabel.text = "Please enter a name"
+        }
+        
         messageLabel.textColor = UIColor.redColor()
+        nameLabel.textColor = UIColor.blueColor()
         
         // Reset the message text
         enterMessageTextField.text = ""
         enterMessageTextField.resignFirstResponder()
+        enterNameTextField.text = ""
+        
         
         // Update Button Text - Buttons have a state
         mailButton.setTitle("Mail Sent", forState: UIControlState.Normal)
